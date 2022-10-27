@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchases",
+  "info": {
+    "singularName": "purchase",
+    "pluralName": "purchases",
+    "displayName": "purchase"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "purchases"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course.course",
+      "inversedBy": "purchases"
+    },
+    "paymentConfirmed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "paymentGateway": {
+      "type": "string",
+      "required": true,
+      "default": "admin created"
+    },
+    "amount": {
+      "type": "biginteger"
+    },
+    "expired": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teachers",
+  "info": {
+    "singularName": "teacher",
+    "pluralName": "teachers",
+    "displayName": "Teacher",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "facebookProfileLink": {
+      "type": "string"
+    },
+    "twitterProfileLink": {
+      "type": "string"
+    },
+    "instagramProfileLink": {
+      "type": "string"
+    },
+    "linkedInProfileLink": {
+      "type": "string"
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course.course",
+      "mappedBy": "teachers"
+    }
+  }
+}

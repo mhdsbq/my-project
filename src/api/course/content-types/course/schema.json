@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "fee": {
+      "type": "biginteger"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "sidebarImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "chapters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::chapter.chapter",
+      "mappedBy": "course"
+    },
+    "teachers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::teacher.teacher",
+      "inversedBy": "courses"
+    },
+    "purchases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::purchase.purchase",
+      "private": true,
+      "mappedBy": "course"
+    }
+  }
+}
